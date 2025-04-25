@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第十屆亞太服務學習研討會 (APRC S-L 2025) 資訊</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* 自訂樣式 */
+        body {
+            font-family: 'Inter', sans-serif; /* 使用 Inter 字體 */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* 確保內容至少佔滿視窗高度 */
+        }
+        main {
+            flex-grow: 1; /* 讓主要內容區域填滿剩餘空間 */
+        }
+        .tab-button {
+            transition: background-color 0.3s ease, color 0.3s ease; /* 平滑過渡效果 */
+        }
+        .tab-button.active {
+            background-color: #3b82f6; /* 藍色背景 */
+            color: white;
+            border-bottom: 2px solid #1d4ed8; /* 深藍色底線 */
+        }
+        .tab-button:not(.active):hover {
+            background-color: #eff6ff; /* 淺藍色懸停效果 */
+        }
+        .tab-content {
+            display: none; /* 預設隱藏內容 */
+            animation: fadeIn 0.5s ease-in-out; /* 淡入動畫 */
+        }
+        .tab-content.active {
+            display: block; /* 顯示當前活動內容 */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* 響應式設計：調整斷點以容納更多按鈕 */
+        @media (max-width: 1280px) { /* xl breakpoint */
+            .tab-buttons {
+                flex-direction: column;
+            }
+            .tab-button {
+                width: 100%;
+                border-radius: 0.5rem; /* 在小螢幕上給按鈕圓角 */
+                margin-bottom: 0.5rem; /* 按鈕間距 */
+                border-bottom: none; /* 移除小螢幕上的底線 */
+            }
+            .tab-button.active {
+                 border-bottom: none; /* 移除活動按鈕的底線 */
+            }
+        }
+        /* 時間軸樣式 */
+        .timeline {
+            position: relative;
+            padding-left: 2rem; /* 為線條留出空間 */
+            border-left: 2px solid #cbd5e1; /* 灰色時間線 */
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem; /* 將點定位到時間線上 */
+            top: 0.25rem; /* 垂直居中 */
+            width: 1rem;
+            height: 1rem;
+            background-color: #3b82f6; /* 藍色點 */
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+         .timeline-item:last-child {
+            margin-bottom: 0; /* 最後一項移除底部間距 */
+        }
+        /* 詳細日程樣式 */
+        .schedule-day {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #e5e7eb; /* 分隔線 */
+        }
+        .schedule-day:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .schedule-time {
+            font-weight: 600;
+            color: #4b5563; /* 灰色時間 */
+            width: 7rem; /* 稍微加寬以容納 PM/NN */
+            flex-shrink: 0; /* 防止縮小 */
+            text-align: right; /* 時間靠右對齊 */
+            padding-right: 0.5rem;
+        }
+        .schedule-activity {
+            margin-left: 0.5rem; /* 調整左邊距 */
+            flex-grow: 1; /* 讓活動內容填滿剩餘空間 */
+        }
+        .schedule-item {
+             display: flex;
+             align-items: flex-start; /* 頂部對齊 */
+             margin-bottom: 0.5rem; /* 項目間距 */
+        }
+        /* 住宿表格樣式 */
+        .accommodation-table th, .accommodation-table td {
+            padding: 0.75rem; /* 增加內邊距 */
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb; /* 灰色底線 */
+        }
+        .accommodation-table th {
+            background-color: #f9fafb; /* 淺灰色表頭背景 */
+            font-weight: 600;
+        }
+        .accommodation-table tr:last-child td {
+             border-bottom: none; /* 最後一行的儲存格無底線 */
+        }
+        /* 交通路線樣式 */
+        .route-card {
+             background-color: #f9fafb;
+             border: 1px solid #e5e7eb;
+             border-radius: 0.5rem;
+             padding: 1rem;
+             margin-bottom: 1rem;
+        }
+        .route-card h4 {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        .route-card p {
+            color: #4b5563;
+            font-size: 0.875rem; /* text-sm */
+        }
+        .route-card i.fa-long-arrow-alt-right { /* Target only the arrow icon */
+            margin: 0 0.5rem;
+            color: #9ca3af;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="bg-blue-600 text-white p-6 shadow-md">
+        <div class="container mx-auto max-w-5xl">
+            <h1 class="text-2xl md:text-3xl font-bold text-center">
+                <i class="fas fa-globe-asia mr-2"></i>第十屆亞太服務學習研討會 (APRC S-L 2025)
+            </h1>
+            <p class="text-center mt-1 text-blue-100">所有你需要知道的資訊</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto max-w-5xl p-4 md:p-8">
+        <div class="mb-6 bg-white p-2 rounded-lg shadow-sm flex flex-wrap justify-center tab-buttons">
+            <button class="tab-button flex-1 xl:flex-none text-center py-3 px-4 font-semibold text-gray-700 rounded-t-lg active" onclick="showTab('general')">
+                <i class="fas fa-info-circle mr-1"></i> 基本資訊
+            </button>
+            <button class="tab-button flex-1 xl:flex-none text-center py-3 px-4 font-semibold text-gray-700 rounded-t-lg" onclick="showTab('schedule')">
+                <i class="fas fa-calendar-alt mr-1"></i> 重要時程
+            </button>
+            <button class="tab-button flex-1 xl:flex-none text-center py-3 px-4 font-semibold text-gray-700 rounded-t-lg" onclick="showTab('conference_schedule')">
+                <i class="fas fa-tasks mr-1"></i> 研討會日程
+            </button>
+            <button class="tab-button flex-1 xl:flex-none text-center py-3 px-4 font-semibold text-gray-700 rounded-t-lg" onclick="showTab('registration')">
+                <i class="fas fa-edit mr-1"></i> 註冊報名
+            </button>
+            <button class="tab-button flex-1 xl:flex-none text-center py-3 px-4 font-semibold text-gray-700 rounded-t-lg" onclick="showTab('papers')">
+                <i class="fas fa-file-alt mr-1"></i> 論文徵集
+            </button>
+            <button class="tab-button flex-1 xl:flex-none text-center py-3 px-4 font-semibold text-gray-700 rounded-t-lg" onclick="showTab('davao')">
+                <i class="fas fa-map-marked-alt mr-1"></i> 達沃市指南
+            </button>
+             <button class="tab-button flex-1 xl:flex-none text-center py-3 px-4 font-semibold text-gray-700 rounded-t-lg" onclick="showTab('tour')">
+                <i class="fas fa-umbrella-beach mr-1"></i> 會後跳島遊
+            </button>
+             <button class="tab-button flex-1 xl:flex-none text-center py-3 px-4 font-semibold text-gray-700 rounded-t-lg" onclick="showTab('travel')">
+                <i class="fas fa-plane-departure mr-1"></i> 如何前往
+            </button>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div id="general" class="tab-content active">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-700 border-b pb-2">會議基本資訊</h2>
+                <ul class="list-disc space-y-3 pl-5">
+                    <li><strong>會議名稱：</strong> 第十屆亞太服務學習研討會 (10th Asia Pacific Regional Conference on Service-Learning, APRC S-L)</li>
+                    <li><strong>主題：</strong> <span class="font-semibold">透過服務學習建構公正與人道的世界</span> (Building a Just and Humane World through Service-Learning)</li>
+                    <li><strong>日期：</strong> <span class="text-red-600 font-semibold">2025 年 10 月 6 日 (一) 至 10 月 10 日 (五)</span></li>
+                    <li><strong>地點：</strong>
+                         <a href="https://www.google.com/maps/search/?api=1&query=Ateneo+de+Davao+University" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
+                            菲律賓 達沃市 愛特諾德達沃大學 <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                         </a>
+                         (Ateneo de Davao University, Davao City, Philippines)
+                    </li>
+                    <li><strong>主辦單位：</strong> 愛特諾德達沃大學 (Ateneo de Davao University)</li>
+                    <li><strong>主要目標：</strong>
+                        <ul class="list-circle pl-5 mt-1 space-y-1 text-gray-600">
+                            <li>連結學術知識與實際參與。</li>
+                            <li>促進同理心、行動力與有意義的夥伴關係。</li>
+                            <li>分享服務學習的最佳實踐與創新方法。</li>
+                        </ul>
+                    </li>
+                     <li><strong>聯絡人：</strong>
+                        <ul class="list-circle pl-5 mt-1 space-y-1 text-gray-600">
+                            <li>Jopriz M. Bueno (議程委員會主席)</li>
+                            <li>Shela Mae C. Jaso (Arrupe 社會形成辦公室主任)</li>
+                        </ul>
+                    </li>
+                    <li><strong>聯絡信箱：</strong>
+                        <ul class="list-circle pl-5 mt-1 space-y-1 text-gray-600">
+                            <li>主要：<code class="text-sm bg-gray-200 p-1 rounded">servicelearning.arrupe@addu.edu.ph</code></li>
+                            <li>副本：<code class="text-sm bg-gray-200 p-1 rounded">slan.aprc2025@gmail.com</code></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <h3 class="text-lg font-semibold text-blue-800 mb-2"><i class="fas fa-book-open mr-2"></i>會議入門介紹 (Primer)</h3>
+                    <p class="text-gray-700">這份文件提供了會議的整體概覽、主題的深入解釋、重點活動預告以及主辦單位的介紹。</p>
+                    <a href="https://tinyurl.com/APRC2025Primer" target="_blank" rel="noopener noreferrer" class="mt-2 inline-block text-blue-600 hover:underline">
+                        <i class="fas fa-link mr-1"></i> 查看 Primer
+                    </a>
+                </div>
+            </div>
+
+            <div id="schedule" class="tab-content">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-700 border-b pb-2">活動重要時程</h2>
+                <div class="timeline mt-4">
+                    <div class="timeline-item">
+                        <h3 class="text-lg font-semibold text-purple-700 mb-1">論文摘要提交截止</h3>
+                        <p class="text-gray-600 font-medium">2025 年 6 月 1 日</p>
+                        <p class="text-sm text-gray-500">有意發表者需在此日期前提交英文摘要。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="text-lg font-semibold text-purple-700 mb-1">論文摘要錄取通知</h3>
+                        <p class="text-gray-600 font-medium">2025 年 7 月 1 日</p>
+                        <p class="text-sm text-gray-500">主辦單位將通知摘要是否被接受。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="text-lg font-semibold text-green-700 mb-1">會議註冊截止</h3>
+                        <p class="text-gray-600 font-medium">2025 年 7 月 4 日</p>
+                        <p class="text-sm text-gray-500">欲參加會議者需在此日期前完成線上註冊。</p>
+                    </div>
+                     <div class="timeline-item">
+                        <h3 class="text-lg font-semibold text-green-700 mb-1">會議繳費截止</h3>
+                        <p class="text-gray-600 font-medium">2025 年 8 月 1 日</p>
+                        <p class="text-sm text-gray-500">已註冊者需在此日期前完成繳費並寄送證明。</p>
+                    </div>
+                     <div class="timeline-item">
+                        <h3 class="text-lg font-semibold text-purple-700 mb-1">完整論文提交截止</h3>
+                        <p class="text-gray-600 font-medium">2025 年 9 月 1 日</p>
+                        <p class="text-sm text-gray-500">摘要被接受者需在此日期前提交完整論文。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="text-lg font-semibold text-blue-700 mb-1">第十屆亞太服務學習研討會</h3>
+                        <p class="text-gray-600 font-medium">2025 年 10 月 6 日 (一) 至 10 月 10 日 (五)</p>
+                        <p class="text-sm text-gray-500">於菲律賓達沃市愛特諾德達沃大學舉行。</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="text-lg font-semibold text-orange-700 mb-1">會後跳島遊 (自選行程)</h3>
+                        <p class="text-gray-600 font-medium">2025 年 10 月 11 日 (六)</p>
+                        <p class="text-sm text-gray-500">可選的薩馬爾島跳島旅遊活動，根據 Primer 文件可能由主辦方贊助，請確認。</p>
+                    </div>
+                </div>
+            </div>
+
+             <div id="conference_schedule" class="tab-content">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-700 border-b pb-2">研討會日程</h2>
+                 <div class="p-4 mb-4 bg-yellow-50 border border-yellow-300 rounded-lg text-yellow-800 text-sm">
+                    <i class="fas fa-info-circle mr-2"></i><strong>說明：</strong>以下日程根據官方 Primer 文件整理，實際執行細節可能依現場狀況調整。
+                </div>
+
+                <div class="schedule-day">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">第 0 天：10 月 6 日 (星期一) - 會前活動</h3>
+                    <div class="space-y-2">
+                        <div class="schedule-item"><span class="schedule-time">4:00-6:00 PM</span><span class="schedule-activity">迎接代表 + 愛特諾德達沃大學 (AdDU) 校園導覽</span></div>
+                        <div class="schedule-item"><span class="schedule-time">7:00-9:00 PM</span><span class="schedule-activity">歡迎晚宴 & 交流之夜</span></div>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">第 1 天：10 月 7 日 (星期二) - 主題演講與工作坊</h3>
+                     <div class="space-y-2">
+                        <div class="schedule-item"><span class="schedule-time">8:00-9:00 AM</span><span class="schedule-activity">報到與領取資料袋</span></div>
+                        <div class="schedule-item"><span class="schedule-time">9:00-9:30 AM</span><span class="schedule-activity">開場準備與心情調適</span></div>
+                        <div class="schedule-item"><span class="schedule-time">9:30-10:00 AM</span><span class="schedule-activity">SLAN 與第十屆 APRC S-L 2025 概覽</span></div>
+                        <div class="schedule-item"><span class="schedule-time">10:00-10:30 AM</span><span class="schedule-activity text-gray-500">(可能為茶歇時間)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">10:30-11:30 AM</span><span class="schedule-activity">主題演講：透過服務學習 (S-L) 建構公正與人道的世界</span></div>
+                        <div class="schedule-item"><span class="schedule-time">11:30-12:00 NN</span><span class="schedule-activity">開放論壇 (Open Forum)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">12:00-1:30 PM</span><span class="schedule-activity text-gray-500">(可能為午餐時間)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">1:30-2:30 PM</span><span class="schedule-activity">全體會議 1：從反思到轉化性服務學習行動</span></div>
+                         <div class="schedule-item"><span class="schedule-time">2:30-3:00 PM</span><span class="schedule-activity text-gray-500">(可能為討論或茶歇)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">3:00-3:30 PM</span><span class="schedule-activity">回應：靈性與服務學習</span></div>
+                        <div class="schedule-item"><span class="schedule-time">3:30-5:20 PM</span><span class="schedule-activity">全體會議 2：為數位原生代促進服務學習反思 (含開放論壇)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">5:20-6:20 PM</span><span class="schedule-activity">工作坊</span></div>
+                        <div class="schedule-item"><span class="schedule-time">6:20-6:30 PM</span><span class="schedule-activity text-gray-500">(可能為準備時間)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">6:30-7:30 PM</span><span class="schedule-activity">省察 (Examen)：當日反思回顧</span></div>
+                        <div class="schedule-item"><span class="schedule-time">7:30-8:30 PM</span><span class="schedule-activity">交流時間 (Networking Time)</span></div>
+                    </div>
+                </div>
+
+                 <div class="schedule-day">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">第 2 天：10 月 8 日 (星期三) - 制度化與最佳實踐</h3>
+                     <div class="space-y-2">
+                        <div class="schedule-item"><span class="schedule-time">8:00-8:30 AM</span><span class="schedule-activity">報到</span></div>
+                        <div class="schedule-item"><span class="schedule-time">8:30-8:50 AM</span><span class="schedule-activity">開場準備與心情調適</span></div>
+                        <div class="schedule-item"><span class="schedule-time">8:50-9:00 AM</span><span class="schedule-activity">前日回顧 (Recap)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">9:00-9:20 AM</span><span class="schedule-activity text-gray-500">(可能為準備時間)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">9:20-9:45 AM</span><span class="schedule-activity">全體會議 3：第九屆 APRC S-L 工作坊成果報告與制度化</span></div>
+                        <div class="schedule-item"><span class="schedule-time">9:45-10:00 AM</span><span class="schedule-activity">開放論壇</span></div>
+                        <div class="schedule-item"><span class="schedule-time">10:00-10:20 AM</span><span class="schedule-activity text-gray-500">(可能為茶歇時間)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">10:20-10:30 AM</span><span class="schedule-activity">小組對話說明</span></div>
+                        <div class="schedule-item"><span class="schedule-time">10:30 AM-12:00 NN</span><span class="schedule-activity">小組對話：服務學習制度化實踐</span></div>
+                        <div class="schedule-item"><span class="schedule-time">12:00-1:30 PM</span><span class="schedule-activity text-gray-500">(可能為午餐時間)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">1:30-3:00 PM</span><span class="schedule-activity">全體分享：小組對話成果 - 服務學習制度化實踐與創新策略</span></div>
+                         <div class="schedule-item"><span class="schedule-time">3:00-3:30 PM</span><span class="schedule-activity text-gray-500">(可能為茶歇時間)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">3:30-5:00 PM</span><span class="schedule-activity">爐邊對談：菲律賓的服務學習實踐</span></div>
+                        <div class="schedule-item"><span class="schedule-time">5:00-5:15 PM</span><span class="schedule-activity">省察 (Examen)：當日反思回顧</span></div>
+                        <div class="schedule-item"><span class="schedule-time">5:15-6:00 PM</span><span class="schedule-activity">彌撒 (Holy Mass)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">7:00-8:00 PM</span><span class="schedule-activity">商務會議：批准 SLAN 章程 + 新任 SLAN 幹部與委員會提名選舉</span></div>
+                    </div>
+                </div>
+
+                <div class="schedule-day">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">第 3 天：10 月 9 日 (星期四) - 研究論壇</h3>
+                     <div class="space-y-2">
+                        <div class="schedule-item"><span class="schedule-time">8:00-8:30 AM</span><span class="schedule-activity">報到</span></div>
+                        <div class="schedule-item"><span class="schedule-time">8:30-8:45 AM</span><span class="schedule-activity">開場準備與心情調適</span></div>
+                        <div class="schedule-item"><span class="schedule-time">8:45-9:00 AM</span><span class="schedule-activity">前日回顧 (Recap)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">9:00-9:40 AM</span><span class="schedule-activity">全體會議 4：交織研究與反思以促進服務學習行動</span></div>
+                        <div class="schedule-item"><span class="schedule-time">9:40-10:00 AM</span><span class="schedule-activity">開放論壇</span></div>
+                        <div class="schedule-item"><span class="schedule-time">10:00-10:10 AM</span><span class="schedule-activity">分組會議說明</span></div>
+                         <div class="schedule-item"><span class="schedule-time">10:10-10:30 AM</span><span class="schedule-activity text-gray-500">(可能為茶歇時間)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">10:30 AM-12:00 NN</span><span class="schedule-activity">主題分組會議：研究發表</span></div>
+                         <div class="schedule-item"><span class="schedule-time">12:00-1:30 PM</span><span class="schedule-activity text-gray-500">(可能為午餐時間)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">1:30-3:30 PM</span><span class="schedule-activity">全體會議：第十屆 APRC S-L / 服務學習行動計畫 & 研究議程</span></div>
+                         <div class="schedule-item"><span class="schedule-time">3:30-4:00 PM</span><span class="schedule-activity text-gray-500">(可能為茶歇時間)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">4:00 PM</span><span class="schedule-activity">省察 (Examen)：當日反思回顧</span></div>
+                    </div>
+                </div>
+
+                 <div class="schedule-day">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">第 4 天：10 月 10 日 (星期五) - 社區體驗</h3>
+                     <div class="space-y-2">
+                        <div class="schedule-item"><span class="schedule-time">6:00-6:30 AM</span><span class="schedule-activity">集合時間 (Call Time)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">6:30-7:00 AM</span><span class="schedule-activity">開場準備與心情調適</span></div>
+                        <div class="schedule-item"><span class="schedule-time">7:00-8:00 AM</span><span class="schedule-activity">前往 Brgy. Tibungco, Davao City</span></div>
+                        <div class="schedule-item"><span class="schedule-time">8:00-8:30 AM</span><span class="schedule-activity">社區 (Barangay) 簡介</span></div>
+                        <div class="schedule-item"><span class="schedule-time">8:30 AM-12:00 NN</span><span class="schedule-activity">社區體驗 (Community Exposure)</span></div>
+                         <div class="schedule-item"><span class="schedule-time">12:00-1:30 PM</span><span class="schedule-activity text-gray-500">(可能為午餐/交通時間)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">1:30-2:30 PM</span><span class="schedule-activity">前往 ADDU-CCFC (會議中心?)</span></div>
+                         <div class="schedule-item"><span class="schedule-time">2:30-4:00 PM</span><span class="schedule-activity text-gray-500">(可能為休息/準備時間)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">4:00-6:00 PM</span><span class="schedule-activity">點燃火焰：對公正與人道世界的承諾 (小型靜修)</span></div>
+                        <div class="schedule-item"><span class="schedule-time">6:30-9:00 PM</span><span class="schedule-activity">交流晚宴與閉幕式</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="registration" class="tab-content">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-700 border-b pb-2">註冊報名資訊</h2>
+                 <ul class="list-disc space-y-3 pl-5">
+                    <li><strong>註冊費用：</strong> <span class="font-semibold text-green-700">449 美元 / 人</span></li>
+                    <li><strong>費用包含：</strong> 會議期間指定餐點、當地交通、會議資料袋、紀念品、摘要集。(注意：<span class="text-red-600">不包含機票和住宿</span>)</li>
+                    <li><strong>重要日期：</strong>
+                        <ul class="list-circle pl-5 mt-1 space-y-1 text-gray-600">
+                            <li>註冊截止：<span class="text-red-600 font-semibold">2025 年 7 月 4 日</span></li>
+                            <li>付款截止：<span class="text-red-600 font-semibold">2025 年 8 月 1 日</span></li>
+                        </ul>
+                    </li>
+                     <li><strong>註冊步驟：</strong>
+                        <ol class="list-decimal pl-5 mt-1 space-y-1 text-gray-600">
+                            <li>填寫線上註冊表單。</li>
+                            <li>透過銀行轉帳或指定方式繳納費用。</li>
+                            <li>將付款證明掃描檔寄至 <code class="text-sm bg-gray-200 p-1 rounded">servicelearning.arrupe@addu.edu.ph</code> 並 CC <code class="text-sm bg-gray-200 p-1 rounded">slan.aprc2025@gmail.com</code>。</li>
+                        </ol>
+                    </li>
+                    <li><strong>注意事項：</strong>
+                        <ul class="list-circle pl-5 mt-1 space-y-1 text-gray-600">
+                            <li>需同時完成表單填寫與付款確認才算成功。</li>
+                            <li>請留意取消註冊的相關規定（詳見指南）。</li>
+                        </ul>
+                    </li>
+                </ul>
+                 <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-green-50 border border-green-200 rounded-lg">
+                        <h3 class="text-lg font-semibold text-green-800 mb-2"><i class="fas fa-clipboard-list mr-2"></i>註冊指南</h3>
+                        <p class="text-gray-700">詳細說明費用、付款方式、截止日期和取消政策。</p>
+                        <a href="https://tinyurl.com/APRC2025-RegistrationGuide" target="_blank" rel="noopener noreferrer" class="mt-2 inline-block text-blue-600 hover:underline">
+                            <i class="fas fa-link mr-1"></i> 查看註冊指南
+                        </a>
+                    </div>
+                     <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                        <h3 class="text-lg font-semibold text-yellow-800 mb-2"><i class="fas fa-edit mr-2"></i>註冊表單</h3>
+                        <p class="text-gray-700">點此連結填寫線上註冊表單。</p>
+                        <a href="https://tinyurl.com/APRC2025-RegistrationForm" target="_blank" rel="noopener noreferrer" class="mt-2 inline-block text-blue-600 hover:underline">
+                           <i class="fas fa-external-link-alt mr-1"></i> 前往註冊表單
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="papers" class="tab-content">
+                 <h2 class="text-2xl font-semibold mb-4 text-blue-700 border-b pb-2">論文徵集資訊</h2>
+                 <ul class="list-disc space-y-3 pl-5">
+                    <li><strong>投稿性質：</strong> <span class="font-semibold">邀請制，非強制</span>。歡迎研究者、實踐者、學生等分享相關經驗。</li>
+                    <li><strong>投稿內容：</strong> 需與會議主題「透過服務學習建構公正與人道的世界」相關。</li>
+                    <li><strong>建議子主題 (Sub-themes)：</strong>
+                        <ol class="list-[upper-alpha] pl-5 mt-1 space-y-1 text-gray-600 text-sm">
+                            <li>服務學習與社區發展</li>
+                            <li>服務學習與和平建構 / 社會正義</li>
+                            <li>服務學習與健康 / 福祉</li>
+                            <li>服務學習與環境永續 / 氣候行動</li>
+                            <li>服務學習與教育創新 / 課程整合</li>
+                            <li>服務學習與原住民社群 / 文化遺產</li>
+                            <li>服務學習夥伴關係（大學-社區、跨機構等）、評估與影響、科技角色、倫理與挑戰</li>
+                        </ol>
+                    </li>
+                     <li><strong>重要日期：</strong>
+                        <ul class="list-circle pl-5 mt-1 space-y-1 text-gray-600">
+                            <li>摘要提交截止：<span class="text-red-600 font-semibold">2025 年 6 月 1 日</span></li>
+                            <li>錄取通知：<span class="text-red-600 font-semibold">2025 年 7 月 1 日</span></li>
+                            <li>完整論文提交截止：<span class="text-red-600 font-semibold">2025 年 9 月 1 日</span></li>
+                        </ul>
+                    </li>
+                    <li><strong>提交要求：</strong>
+                        <ul class="list-circle pl-5 mt-1 space-y-1 text-gray-600">
+                            <li>先提交英文摘要 (Abstract)。</li>
+                            <li>摘要需符合字數與格式要求（詳見指南）。</li>
+                            <li>透過指定線上表單提交。</li>
+                            <li>內容需為原創且未發表。</li>
+                        </ul>
+                    </li>
+                </ul>
+                 <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-purple-50 border border-purple-200 rounded-lg">
+                        <h3 class="text-lg font-semibold text-purple-800 mb-2"><i class="fas fa-scroll mr-2"></i>論文徵集指南</h3>
+                        <p class="text-gray-700">詳細說明主題、子主題、提交要求、格式和重要日期。</p>
+                        <a href="https://drive.google.com/file/d/1Z1tKivs73chI3eAnzw3rbPsf74GfbPeb/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-2 inline-block text-blue-600 hover:underline">
+                            <i class="fas fa-link mr-1"></i> 查看論文指南
+                        </a>
+                    </div>
+                     <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                        <h3 class="text-lg font-semibold text-yellow-800 mb-2"><i class="fas fa-paper-plane mr-2"></i>論文提交表單</h3>
+                        <p class="text-gray-700">點此連結提交您的摘要或論文。</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSftDPQ293nxEU1UXUta6NMUugx12h21Cj426L6fGy18DdF-tg/viewform?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-2 inline-block text-blue-600 hover:underline">
+                            <i class="fas fa-external-link-alt mr-1"></i> 前往提交表單
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="davao" class="tab-content">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-700 border-b pb-2">達沃市指南</h2>
+                <div class="p-4 mb-6 bg-teal-50 border border-teal-200 rounded-lg text-teal-800 text-sm">
+                     <i class="fas fa-file-pdf mr-2"></i>主辦單位已提供詳細的「達沃市指南」PDF 文件，其中包含交通、景點、實用資訊以及更詳細的住宿建議。<br>
+                     <a href="https://drive.google.com/file/d/1qAlDGI6Vyd5fjkYYCf-DsAuXHAH2DTOp/view" target="_blank" rel="noopener noreferrer" class="mt-1 inline-block text-blue-600 hover:underline">
+                        <i class="fas fa-link mr-1"></i> 下載/查看達沃市指南 PDF
+                     </a>
+                </div>
+                <ul class="list-disc space-y-3 pl-5 mb-6">
+                    <li><strong>城市簡介：</strong> 民答那峨島主要城市，以和平、秩序、清潔聞名，融合都市與自然。</li>
+                    <li><strong>交通：</strong>
+                        <ul class="list-circle pl-5 mt-1 space-y-1 text-gray-600">
+                            <li>機場：法蘭西斯科·班戈伊國際機場 (DVO)。</li>
+                            <li>市內：計程車、吉普尼、三輪車、Grab App。</li>
+                        </ul>
+                    </li>
+                    <li><strong>景點與活動：</strong>
+                        <ul class="list-circle pl-5 mt-1 space-y-1 text-gray-600">
+                            <li>自然：菲律賓鷹中心、伊甸自然公園、馬拉哥斯花園。</li>
+                            <li>海灘：薩馬爾島 (Samal Island)。</li>
+                            <li>文化：達沃博物館、聖佩德羅大教堂、Poblacion 市集中心。</li>
+                            <li>美食：榴槤、柚子、山竹、海鮮、Roxas 夜市。</li>
+                            <li>其他：人民公園、Jack's Ridge。</li>
+                        </ul>
+                    </li>
+                    <li><strong>實用資訊：</strong>
+                        <ul class="list-circle pl-5 mt-1 space-y-1 text-gray-600">
+                            <li>安全：相對安全，仍需注意。</li>
+                            <li>貨幣：菲律賓披索 (PHP)。</li>
+                            <li>語言：宿霧語/維薩揚語、他加祿語，英語通用。</li>
+                            <li>氣候：熱帶，全年溫暖潮濕。</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-gray-800 mb-3 border-t pt-4"><i class="fas fa-bed mr-2"></i>建議住宿 (表格)</h3>
+                <p class="text-gray-600 mb-4 text-sm">以下為主辦單位在指南中建議的部分住宿地點及其預估美金價格範圍。詳細房型、PHP 價格、設施和聯絡方式請參閱指南 PDF。</p>
+                <div class="overflow-x-auto"> <table class="min-w-full accommodation-table">
+                        <thead>
+                            <tr>
+                                <th>飯店名稱</th>
+                                <th>預估美金價格範圍 (USD)</th>
+                                <th>距離 AdDU (步行/計程車)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Faber Hall (AdDU 校內)</td>
+                                <td>$50.53 - $101.05</td>
+                                <td>校內</td>
+                            </tr>
+                            <tr>
+                                <td>Apo View Hotel (4 星級)</td>
+                                <td>$94.30 - $160.96</td>
+                                <td>約 9 分鐘</td>
+                            </tr>
+                             <tr>
+                                <td>Emilia Hotel</td>
+                                <td>$21.05 - $43.86</td>
+                                <td>約 19 分 / 6 分</td>
+                            </tr>
+                             <tr>
+                                <td>Grand Men Seng Hotel (3 星級)</td>
+                                <td>$50.88 (Deluxe)</td>
+                                <td>約 18 分 / 6 分</td>
+                            </tr>
+                             <tr>
+                                <td>Hotel Uno</td>
+                                <td>$16.32 - $42.63</td>
+                                <td>約 5 分 / 4 分</td>
+                            </tr>
+                             <tr>
+                                <td>Jotel Inn</td>
+                                <td>$10.53 - $49.12</td>
+                                <td>約 10 分 / 4 分</td>
+                            </tr>
+                              <tr>
+                                <td>Rogen Inn</td>
+                                <td>$70.18 - $87.72</td>
+                                <td>約 19 分 / 7 分</td>
+                            </tr>
+                             <tr>
+                                <td>Star Hotel</td>
+                                <td>$32.46 - $56.14</td>
+                                <td>約 19 分 / 7 分</td>
+                            </tr>
+                             <tr>
+                                <td>The Royal Mandaya Hotel</td>
+                                <td>$68.21 - $443.86</td>
+                                <td>約 7 分 / 5 分</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                 <p class="text-gray-500 mt-3 text-xs">*價格範圍根據指南提供的不同房型預估美金價格 (1 USD ≈ 57 PHP)。此為約略值，實際價格可能變動，請向飯店查詢確認。<br>*距離為指南提供之預估時間。</p>
+
+            </div>
+
+             <div id="tour" class="tab-content">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-700 border-b pb-2">會後跳島遊 (自選行程)</h2>
+                <ul class="list-disc space-y-3 pl-5">
+                    <li><strong>活動名稱：</strong> 薩馬爾島跳島遊 (Samal Island Hopping Tour)</li>
+                    <li><strong>日期：</strong> <span class="text-red-600 font-semibold">2025 年 10 月 11 日 (六)</span> (會議結束隔天)</li>
+                    <li><strong>性質：</strong> <span class="font-semibold">自選行程</span>。根據 Primer 文件，此活動由 Arrupe 社會形成辦公室<span class="text-green-700 font-semibold">全額贊助 (Fully shouldered)</span>，但仍建議向主辦方確認細節。</li>
+                    <li><strong>地點：</strong> 達沃市附近的
+                         <a href="https://maps.app.goo.gl/Qn8tgLDXzrzry8yq5" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
+                            薩馬爾島 <i class="fas fa-external-link-alt text-xs ml-1"></i>
+                         </a>
+                         (Island Garden City of Samal) 周邊。
+                    </li>
+                    <li><strong>內容：</strong> 提供放鬆和享受薩馬爾島風景海灘的機會。</li>
+                    <li><strong>報名：</strong> 建議在註冊時或直接聯繫主辦單位確認是否需要預先報名以及集合等細節。
+                        <ul class="list-circle pl-5 mt-1 space-y-1 text-gray-600">
+                            <li>聯絡信箱：<code class="text-sm bg-gray-200 p-1 rounded">servicelearning.arrupe@addu.edu.ph</code> 或 <code class="text-sm bg-gray-200 p-1 rounded">slan.aprc2025@gmail.com</code></li>
+                        </ul>
+                    </li>
+                </ul>
+                 <div class="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <h3 class="text-lg font-semibold text-green-800 mb-2"><i class="fas fa-gift mr-2"></i>Primer 文件提及</h3>
+                    <p class="text-gray-700">根據 Primer 文件第七頁，此跳島活動由 Arrupe 社會形成辦公室全額贊助。建議與主辦單位確認此資訊是否仍然有效以及報名方式。</p>
+                </div>
+            </div>
+
+            <div id="travel" class="tab-content">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-700 border-b pb-2">如何前往達沃 (Davao)</h2>
+                <p class="mb-4 text-gray-700">從台灣前往菲律賓達沃市 (Davao City, 機場代碼: DVO)，通常需要在馬尼拉 (Manila, MNL) 或宿霧 (Cebu, CEB) 轉機。以下為常見路線：</p>
+
+                <div class="route-card">
+                    <h4><i class="fas fa-route mr-1"></i> 路線一：經馬尼拉轉機</h4>
+                    <p class="flex items-center flex-wrap">
+                        <span class="font-medium">台灣桃園國際機場 (TPE)</span>
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                        <span class="font-medium">馬尼拉尼諾伊·艾奎諾國際機場 (MNL)</span>
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                        <span class="font-medium">達沃法蘭西斯科·班戈伊國際機場 (DVO)</span>
+                    </p>
+                    <p class="mt-2 text-xs text-gray-500">這是最常見的轉機點，航班選擇較多。請注意馬尼拉機場不同航廈間的轉乘可能需要較長時間。</p>
+                </div>
+
+                <div class="route-card">
+                    <h4><i class="fas fa-route mr-1"></i> 路線二：經宿霧轉機</h4>
+                     <p class="flex items-center flex-wrap">
+                        <span class="font-medium">台灣桃園國際機場 (TPE)</span>
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                        <span class="font-medium">宿霧麥克坦-宿霧國際機場 (CEB)</span>
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                        <span class="font-medium">達沃法蘭西斯科·班戈伊國際機場 (DVO)</span>
+                    </p>
+                    <p class="mt-2 text-xs text-gray-500">宿霧機場相對較小，轉機可能較為便捷，但 TPE 直飛 CEB 的航班選擇可能較少。</p>
+                </div>
+
+                <div class="mt-6 p-4 bg-yellow-50 border border-yellow-300 rounded-lg text-yellow-800 text-sm">
+                    <h4 class="font-semibold mb-1"><i class="fas fa-info-circle mr-1"></i> 訂票提示：</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>建議查詢主要航空公司如：菲律賓航空 (Philippine Airlines)、宿霧太平洋航空 (Cebu Pacific)、亞洲航空 (AirAsia) 等。</li>
+                        <li>使用機票比價網站搜尋不同組合，注意轉機時間是否充足。</li>
+                        <li>分開購買國際線和國內線機票可能需要自行處理行李轉運和轉機簽證問題（若有）。</li>
+                        <li>建議提早預訂機票，尤其是在旅遊旺季。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-700 text-white text-center p-4 mt-auto">
+        <p class="text-sm">© 2025 APRC S-L 資訊彙整。祝您參會順利！</p>
+    </footer>
+
+    <script>
+        // JavaScript 用於處理標籤頁切換
+        function showTab(tabId) {
+            // 隱藏所有內容
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // 移除所有按鈕的 active 狀態
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active', 'bg-blue-600', 'text-white'); // 移除背景和文字顏色
+                button.classList.remove('border-b-2', 'border-blue-800'); // 移除底線
+                button.classList.add('text-gray-700'); // 確保非活動按鈕是灰色文字
+            });
+
+            // 顯示目標內容
+            const targetContent = document.getElementById(tabId);
+            if (targetContent) {
+                targetContent.classList.add('active');
+                 // 更新 URL hash
+                // window.location.hash = tabId; // 暫時移除，避免跳轉
+            }
+
+            // 設定目標按鈕為 active 狀態
+            const targetButton = document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`);
+            if (targetButton) {
+                targetButton.classList.add('active', 'bg-blue-600', 'text-white'); // 添加活動狀態樣式
+                targetButton.classList.remove('text-gray-700');
+                 // 根據螢幕寬度調整底線
+                adjustButtonBorder();
+            }
+        }
+
+         // 調整按鈕底線樣式
+        function adjustButtonBorder() {
+             const buttons = document.querySelectorAll('.tab-button');
+             const breakpoint = 1280; // 與 CSS 中 @media (max-width: ...) 匹配
+
+             buttons.forEach(button => {
+                 // 移除現有底線以防萬一
+                 button.classList.remove('border-b-2', 'border-blue-800');
+                 // 如果按鈕是活動的且螢幕寬度大於斷點，才添加底線
+                 if (button.classList.contains('active') && window.innerWidth > breakpoint) {
+                     button.classList.add('border-b-2', 'border-blue-800');
+                 }
+             });
+        }
+
+        // 頁面載入時，預設顯示第一個標籤並調整按鈕
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialTab = 'general'; // 預設顯示 基本資訊
+            showTab(initialTab);
+
+             // 監聽視窗大小變化，調整按鈕樣式
+            window.addEventListener('resize', adjustButtonBorder); // 每次 resize 都重新調整
+        });
+    </script>
+
+</body>
+</html>
